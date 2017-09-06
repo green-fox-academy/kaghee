@@ -1,0 +1,58 @@
+body {
+    background-image: url("topography.png");
+    font-family: 'Consolas';
+    margin: 0;
+    text-align: justify;
+    line-height: 25px;
+}
+
+main {
+    padding: 10%;
+}
+
+h1 {
+    font-family: 'Roboto Slab', serif;
+}
+
+h2 {
+    font-size: 24px;
+    text-align: center;
+    font-family: 'Roboto Slab', serif;
+}
+
+h3 {
+    font-size: 22px;
+    color: #FF0098;
+}
+
+h4 {
+    font-size: 22px;
+}
+
+.separator {
+    text-align: center;
+    padding: 50px;
+    letter-spacing: 10px;
+}
+
+nav {
+    background-color: #333333;
+    text-align: right;
+    height: 34px;
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-top: 12px;
+    word-spacing: 1em;
+}
+
+
+a {
+    color: #FF0097;
+    text-transform: uppercase;
+}
+
+img {
+    height: 22px;
+    padding-left: 5px;  
+}
+
