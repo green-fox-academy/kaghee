@@ -1,0 +1,24 @@
+p {
+    padding: 20px;
+    margin: 0;
+    font-size: 18px;
+}
+
+div {
+    width: 300px;
+    border: 2px solid black;
+    border-top: none;
+}
+
+body div:last-child {
+    border-bottom: none;
+}
+
+div:hover {
+    background-image: url("backgr.png");
+    
+}
+
+/*div:hover {
+    background-color: #ff6347;
+}*/
