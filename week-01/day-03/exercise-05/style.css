@@ -1,0 +1,28 @@
+* {
+    font-family: "Georgia";
+    line-height: 22px;
+}
+
+p {
+    width: 400px;
+}
+
+h1 {
+    color: #FF4900;
+}
+
+h2 {
+    color: #A71CD8;
+}
+
+ol {
+    text-decoration: underline;
+    list-style-type: upper-roman;
+    color: magenta;
+}
+
+ol li:last-child {
+    color: black;
+    text-decoration: underline;
+}
+
