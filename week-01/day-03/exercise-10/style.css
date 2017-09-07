@@ -1,0 +1,29 @@
+div {
+    width: 200px;
+    background-color: #643579;
+    background-image: url("duck.png");
+    background-position: center center;
+    background-size: 65%;
+    background-repeat: no-repeat;
+    color: #fff;
+    text-align: center;
+    font-size: 16px;
+    font-family: courier;
+    padding: 5px 30px;
+    margin-bottom: 10px;
+}
+
+body div:first-child {
+    background-color: tomato;
+    background-size: 40%;
+    background-repeat: no-repeat;
+    background-position: left center;
+    
+}
+
+body div:last-child {
+    background-color: #808080;
+    background-size: 30%;
+    background-repeat: no-repeat;
+    background-position: right bottom;
+}
