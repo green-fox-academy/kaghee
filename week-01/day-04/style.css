@@ -1,0 +1,179 @@
+* {
+    font-family: "Century Gothic", sans-serif;
+    font-weight: bold;
+    color: #564665
+}
+
+.base {
+    background-color: white;
+    width: 1100px;
+    height: auto;
+    margin: 0;
+    padding: 40px 10%;
+}
+
+div {
+    width: 100%;
+    height: 100%;
+    background-color: #dcd6cd;
+    box-sizing: border-box;
+    padding: 20px;
+}
+
+.header {
+    width: 100%;
+    height: 2em;
+    display: inline-flex;
+    font-size: 30px;
+    font-weight: normal;
+}
+
+.halfbox {
+    width: 50%;
+    height: 500px;
+    display: inline-block;
+}
+
+.left {
+    float: left;
+}
+
+.right {
+    float: right;
+}
+
+
+.fullbox {
+    display: inline-block;
+    width: 100%;
+    height: auto;
+    margin: 0;
+    padding-left: 0;
+}
+
+.quarterbox {
+    width: 50%;
+    height: 5em;
+    margin: 0;
+    padding: 0;
+}
+
+.egysoros {
+    height: 5em;
+    padding: 0;
+}
+
+input {
+    display: block;
+    padding: 0;
+    font-size: 16px;
+    border-radius: 3px;
+    border-style: none;
+    border: 1px solid #938C97;
+    padding-left: 10px;
+    box-sizing: border-box;
+}
+
+.egysoros input {
+    width: 100%;
+    height: 2em;
+    font-weight: normal;
+}
+
+label {
+    line-height: 2em;
+}
+
+h2 {
+    color: white;
+    background-color: #938C97;
+    padding: 0.5em;
+    font-weight: lighter;
+    font-size: 20px;
+    border-radius: 3px;
+}
+
+select, option {
+    display: block;
+    font-weight: normal;
+    padding: 0.5em;
+    margin-top: 0.5em;
+    width: 100%;
+    border-radius: 3px;
+}
+
+*[required] {
+    border:1px solid red;
+}
+
+input[type="radio"] {
+    display: inline;
+}
+
+input[type="checkbox"] {
+    display: inline;
+}
+
+span {
+    font-size: 13px;
+    font-weight: lighter;
+}
+
+p {
+    margin: 0;
+    line-height: 2em;
+}
+
+.checks {
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+}
+
+textarea {
+    display: block;
+    width: 100%;
+    height: 170px;
+    padding: 10px;
+    color: #938C97;
+    font-weight: lighter;
+    border-radius: 3px;
+}
+
+
+.gomb {
+    height: auto;
+}
+
+.gomb > span {
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 2em;
+}
+
+button {
+    display: block;
+    padding: 10px;
+    width: 200px;
+    text-transform: uppercase;
+}
+
+.termstick > label {
+    font-weight: normal;
+}
+
+a {
+    text-decoration: underline;
+    color: #938C97;
+}
+
+button[type="reset"] {
+    float: right;
+    
+}
+
+.nagygomb > button {
+    background-color: #564665;
+    color: #dcd6cd;
+    font-size: 1.5em;
+}
