@@ -1,8 +1,10 @@
+import com.sun.scenario.effect.impl.sw.sse.SSEBlend_SRC_OUTPeer;
+
 import java.util.Scanner;
 
 public class GuessTheNumber {
     public static void main(String[] args) {
-        int a = 35;
+        int a = 89;
 
         Scanner scanner = new Scanner(System.in);
 
@@ -10,15 +12,17 @@ public class GuessTheNumber {
         int guess = scanner.nextInt();
 
         while (guess != a) {
-            if (guess > a)
-        }
+            if (guess > a) {
+                System.out.println("The stored number is lower");
+                System.out.println("Take a guess.");
+                guess = scanner.nextInt();
 
+            } else if (guess < a){
+                System.out.println("The stored number is higher");
+                System.out.println("Take a guess.");
+                guess = scanner.nextInt();
+            }
+        }
+        System.out.println("You found the number: " + a);
     }
 }
-// Write a program that stores a number, and the user has to figure it out.
-// The user can input guesses, after each guess the program would tell one
-// of the following:
-//
-// The stored number is higher
-// The stried number is lower
-// You found the number: 8
