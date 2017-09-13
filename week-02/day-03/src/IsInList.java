@@ -12,7 +12,7 @@ public class IsInList{
         boolean areTheyThere = true;
 
         for (int i = 0; i < nums.length; i++) {
-            if (list.contains(nums[i]) == false) {
+            if (!list.contains(nums[i])) {
                 areTheyThere = false;
             }
         }
