@@ -7,7 +7,7 @@ public class Palindrome {
         System.out.println(palindrome(scanner.nextLine()));
     }
 
-    static String palindrome(String input) {
+    public static String palindrome(String input) {
         String result = input;
         for (int i = input.length() - 1; i >= 0 ; i--) {
             result += input.charAt(i);
