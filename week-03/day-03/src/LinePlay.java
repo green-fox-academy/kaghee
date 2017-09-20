@@ -1,33 +1,28 @@
 import javax.swing.*;
-
 import java.awt.*;
-
 import static javax.swing.JFrame.EXIT_ON_CLOSE;
 
-public class FunctionToCenter {
+public class LinePlay {
 
     public static void mainDraw(Graphics graphics){
-        // create a line drawing function that takes 2 parameters:
-        // the x and y coordinates of the line's starting point
-        // and draws a line from that point to the center of the canvas.
-        // fill the canvas with lines from the edges, every 20 px, to the center.
+        // reproduce this:
+        // [https://github.com/greenfox-academy/teaching-materials/blob/master/workshop/drawing/line-play/r1.png]
 
-        for (int i = 0; i <= 300; i += 20) {
-            for (int j = 0; j <= 300; j += 20) {
-                if (i == 0 || j == 0 || i == 300 || j == 300) {
-                    lineToCenter(graphics, i, j);
-                }
-            }
+        graphics.setColor(new Color(204, 0, 204));
+        for (int i = 1; i < 300; i += 20) {
+            graphics.drawLine(i, 0, 300, i);
         }
-    }
 
-    static void lineToCenter(Graphics g, int x, int y) {
-        g.drawLine(x, y, 150, 150);
+        graphics.setColor(new Color(0, 255, 128));
+        for (int i = 0; i < 300; i += 20) {
+            graphics.drawLine(0, i, i, 300);
+        }
     }
 
     //    Don't touch the code below
     static int WIDTH = 320;
     static int HEIGHT = 343;
+
     public static void main(String[] args) {
         JFrame jFrame = new JFrame("Drawing");
         jFrame.setSize(new Dimension(WIDTH, HEIGHT));
@@ -40,6 +35,7 @@ public class FunctionToCenter {
         @Override
         protected void paintComponent(Graphics graphics) {
             super.paintComponent(graphics);
+            this.setBackground(Color.WHITE);
             mainDraw(graphics);
 
         }
