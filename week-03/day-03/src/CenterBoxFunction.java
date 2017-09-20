@@ -1,29 +1,29 @@
 import javax.swing.*;
+
 import java.awt.*;
-import java.util.Scanner;
 
 import static javax.swing.JFrame.EXIT_ON_CLOSE;
 
-public class GoToCenter {
+public class CenterBoxFunction {
 
     public static void mainDraw(Graphics graphics){
-        // create a line drawing function that takes 2 parameters:
-        // the x and y coordinates of the line's starting point
-        // and draws a line from that point to the center of the canvas.
-        // draw 3 lines with that function.
+        // create a square drawing function that takes 1 parameter:
+        // the square size
+        // and draws a square of that size to the center of the canvas.
+        // draw 3 squares with that function.
 
-        graphics.setColor(Color.ORANGE);
-        goToCenter(graphics, 24, 89);
+        graphics.setColor(new Color(232, 98, 9));
+        centerBox(graphics, 200);
 
-        graphics.setColor(Color.MAGENTA);
-        goToCenter(graphics, 200, 210);
+        graphics.setColor(new Color(255, 140, 40));
+        centerBox(graphics, 150);
 
-        graphics.setColor(Color.RED);
-        goToCenter(graphics, 10, 10);
+        graphics.setColor(new Color(247, 196, 96));
+        centerBox(graphics, 50);
     }
 
-    static void goToCenter(Graphics g, int x, int y) {
-        g.drawLine(x, y, 150, 150);
+    static void centerBox(Graphics g, int size) {
+        g.fillRect(150 - size / 2, 150 - size / 2, size, size);
     }
 
     //    Don't touch the code below
@@ -43,6 +43,8 @@ public class GoToCenter {
         protected void paintComponent(Graphics graphics) {
             super.paintComponent(graphics);
             mainDraw(graphics);
+
         }
     }
+
 }
