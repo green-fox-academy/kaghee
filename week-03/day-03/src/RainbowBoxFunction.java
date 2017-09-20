@@ -24,7 +24,6 @@ public class RainbowBoxFunction {
         ArrayList<int[]> colours = new ArrayList<>();
         colours.addAll(Arrays.asList(darkPurple, purple, darkPink, orange, peach, yellow, white));
 
-
         for (int i = 0; i < 7; i++) {
             int boxSize = 290;
             rainbowBox(graphics, boxSize - i * 30, colours.get(i));
@@ -53,8 +52,6 @@ public class RainbowBoxFunction {
         protected void paintComponent(Graphics graphics) {
             super.paintComponent(graphics);
             mainDraw(graphics);
-
         }
     }
-
 }
