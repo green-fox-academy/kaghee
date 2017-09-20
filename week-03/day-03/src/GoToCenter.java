@@ -24,7 +24,7 @@ public class GoToCenter {
     }
 
     static void goToCenter(Graphics g, int x, int y) {
-        g.drawLine(x, y, WIDTH / 2, HEIGHT / 2);
+        g.drawLine(x, y, 150, 150);
     }
 
     //    Don't touch the code below

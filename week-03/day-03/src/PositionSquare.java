@@ -4,14 +4,26 @@ import java.awt.*;
 
 import static javax.swing.JFrame.EXIT_ON_CLOSE;
 
-public class Diagonals {
+public class PositionSquare {
 
     public static void mainDraw(Graphics graphics){
-        // draw the canvas' diagonals in green.
+        // create a square drawing function that takes 2 parameters:
+        // the x and y coordinates of the square's top left corner
+        // and draws a 50x50 square from that point.
+        // draw 3 squares with that function.
 
         graphics.setColor(Color.GREEN);
-        graphics.drawLine(0, 0, 300, 300);
-        graphics.drawLine(300, 0, 0, 300);
+        positionSquare(graphics, 25, 25);
+
+        graphics.setColor(new Color(23, 128, 90));
+        positionSquare(graphics, 100, 200);
+
+        graphics.setColor(new Color(29, 186, 92));
+        positionSquare(graphics, 180, 60);
+    }
+
+    static void positionSquare(Graphics g, int x, int y) {
+        g.fillRect(x, y, 50, 50);
     }
 
     //    Don't touch the code below

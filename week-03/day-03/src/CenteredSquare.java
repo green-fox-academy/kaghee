@@ -4,14 +4,14 @@ import java.awt.*;
 
 import static javax.swing.JFrame.EXIT_ON_CLOSE;
 
-public class Diagonals {
+public class CenteredSquare {
 
     public static void mainDraw(Graphics graphics){
-        // draw the canvas' diagonals in green.
+        // draw a green 10x10 square to the canvas' center.
 
+        int side = 10;
         graphics.setColor(Color.GREEN);
-        graphics.drawLine(0, 0, 300, 300);
-        graphics.drawLine(300, 0, 0, 300);
+        graphics.fillRect(150 - side / 2, 150 - side / 2, side, side);
     }
 
     //    Don't touch the code below

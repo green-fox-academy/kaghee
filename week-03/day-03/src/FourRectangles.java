@@ -4,20 +4,27 @@ import java.awt.*;
 
 import static javax.swing.JFrame.EXIT_ON_CLOSE;
 
-public class Diagonals {
+public class FourRectangles {
 
     public static void mainDraw(Graphics graphics){
-        // draw the canvas' diagonals in green.
+        // draw four different size and color rectangles.
 
-        graphics.setColor(Color.GREEN);
-        graphics.drawLine(0, 0, 300, 300);
-        graphics.drawLine(300, 0, 0, 300);
+        graphics.setColor(Color.PINK);
+        graphics.fillRect(10, 10, 200, 80);
+
+        graphics.setColor(new Color(249, 149, 18));
+        graphics.fillRect(60, 100, 220, 90);
+
+        graphics.setColor(Color.YELLOW);
+        graphics.fillRect(100, 225, 100, 30);
+
+        graphics.setColor(new Color(249, 18, 80));
+        graphics.fillRect(37, 210, 50, 80);
     }
 
     //    Don't touch the code below
     static int WIDTH = 320;
     static int HEIGHT = 343;
-
     public static void main(String[] args) {
         JFrame jFrame = new JFrame("Drawing");
         jFrame.setSize(new Dimension(WIDTH, HEIGHT));
@@ -34,5 +41,4 @@ public class Diagonals {
 
         }
     }
-
 }
