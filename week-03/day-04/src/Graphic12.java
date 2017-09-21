@@ -6,39 +6,28 @@ import static javax.swing.JFrame.EXIT_ON_CLOSE;
 
 public class Graphic12 {
     public static void mainDraw(Graphics graphics){
-
-        drawLines(graphics, 900, 0, 0);
+        drawLines(graphics, 600, 40, 40);
     }
-
-
 
     public static void drawLines(Graphics g, int n, int x, int y) {           // n = size of box
         if (n > 1) {
-
-            drawLines(g, n / 3, x * n / 3, y + n / 3);                // left
-            drawLines(g, n / 3, x + n / 3, y * n / 3);                // top
-           // drawLines(g, n / 3, ;)
-            //drawLines(g, n / 3, x + n / 3, y + n / 3 * 2);
-
+            drawLines(g, n / 3, x , y + n / 3);                         // left
+            drawLines(g, n / 3, x + n / 3, y );                        // top
+            drawLines(g, n / 3, x + n / 3 * 2, y + n / 3);           // right
+            drawLines(g, n / 3, x + n / 3, y + n / 3 * 2);          // bot
         }
 
+        g.drawRect(x, y, n, n);
         g.drawLine(x + n / 3, y, x + n / 3, y + n);
         g.drawLine(x + n / 3 * 2, y, x + n / 3 * 2, y + n);
         g.drawLine(x, y + n / 3, x + n, y + n / 3);
         g.drawLine(x, y + n / 3 * 2, x + n, y + n / 3 * 2);
     }
 
-    /*public static void drawSquare(Graphics g, int size) {
-
-        int count = 1;
-        g.drawRect(0, 0, size / 3, size / 3);
-    }*/
-
-
 
     //    Don't touch the code below
-    static int WIDTH = 900;
-    static int HEIGHT = 900;
+    static int WIDTH = 700;
+    static int HEIGHT = 700;
 
     public static void main(String[] args) {
         JFrame jFrame = new JFrame("Drawing");
