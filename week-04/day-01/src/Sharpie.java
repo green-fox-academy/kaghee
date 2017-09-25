@@ -11,11 +11,4 @@ public class Sharpie {
         this.color = clr;
         this.width = wdth;
     }
-
-    public static void main(String[] args) {
-        Sharpie cerka = new Sharpie("red", 3.4f);
-        cerka.use();
-        System.out.println(cerka.inkAmount);
-        System.out.println(cerka.color);
-    }
 }
