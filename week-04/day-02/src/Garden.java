@@ -6,7 +6,6 @@ public class Garden {
 
     public Garden() {
         plants = new ArrayList<Plant>();
-
     }
 
     public void water(int waterAmount) {
