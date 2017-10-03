@@ -9,6 +9,18 @@ public class Board extends JComponent implements KeyListener {
     int heroPosX;
     int heroPosY;
 
+    int[][] board = {
+            {0,0,0,1,0,1,0,0,0,0},
+            {0,0,0,1,0,1,0,1,1,0},
+            {0,1,1,1,0,1,0,1,1,0},
+            {0,0,0,0,0,1,0,0,0,0},
+            {1,1,1,1,0,1,1,1,1,0},
+            {0,1,0,1,0,0,0,0,1,0},
+            {0,1,0,1,0,1,1,0,1,0},
+            {0,0,0,0,0,1,1,0,1,0},
+            {0,1,1,1,0,0,0,0,1,0},
+            {0,0,0,1,0,1,1,0,1,0}};
+
     static int BOARD_SIZE = 10;
 
     public Board(String file) {
@@ -24,22 +36,10 @@ public class Board extends JComponent implements KeyListener {
     public void paint(Graphics graphics) {
         super.paint(graphics);
 
-        int[][] board = {
-            {0,0,0,1,0,1,0,0,0,0},
-            {0,0,0,1,0,1,0,1,1,0},
-            {0,1,1,1,0,1,0,1,1,0},
-            {0,0,0,0,0,1,0,0,0,0},
-            {1,1,1,1,0,1,1,1,1,0},
-            {0,1,0,1,0,0,0,0,1,0},
-            {0,1,0,1,0,1,1,0,1,0},
-            {0,0,0,0,0,1,1,0,1,0},
-            {0,1,1,1,0,0,0,0,1,0},
-            {0,0,0,1,0,1,1,0,1,0}};
-
         for (int i = 0; i < 10; i++) {
             for (int j = 0; j < 10; j++) {
-                PositionedImage floor = new PositionedImage("assets/floor.png", j * 72, i * 72);
-                PositionedImage wall = new PositionedImage("assets/wall.png", j * 72, i * 72);
+                PositionedImage floor = new PositionedImage("assets/floor.png", j, i);
+                PositionedImage wall = new PositionedImage("assets/wall.png", j, i);
                 if (board[i][j] == 0) {
                     floor.draw(graphics);
                 } else if (board[i][j] == 1){
@@ -65,17 +65,16 @@ public class Board extends JComponent implements KeyListener {
 
     @Override
     public void keyReleased(KeyEvent e) {
-        // When the up or down keys hit, we change the position of our box
-        if (e.getKeyCode() == KeyEvent.VK_UP) {
-            heroPosY -= 72;
-        } else if(e.getKeyCode() == KeyEvent.VK_DOWN) {
-            heroPosY += 72;
-        } else if(e.getKeyCode() == KeyEvent.VK_LEFT) {
-            heroPosX -= 72;
-        }else if(e.getKeyCode() == KeyEvent.VK_RIGHT) {
-            heroPosX += 72;
+        if (e.getKeyCode() == KeyEvent.VK_UP && board[heroPosY - 1][heroPosX] != 1) {
+            heroPosY--;
+        } else if(e.getKeyCode() == KeyEvent.VK_DOWN && board[heroPosY + 1][heroPosX] != 1) {
+            heroPosY++;
+        } else if(e.getKeyCode() == KeyEvent.VK_LEFT && board[heroPosY][heroPosX - 1] != 1) {
+            heroPosX--;
+        }else if(e.getKeyCode() == KeyEvent.VK_RIGHT && board[heroPosY][heroPosX + 1] != 1) {
+            heroPosX++;
         }
-        // and redraw to have a new picture with the new coordinates
+
         repaint();
     }
 }
