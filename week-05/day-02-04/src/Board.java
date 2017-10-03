@@ -2,17 +2,26 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Board extends JComponent implements KeyListener {
 
     int testBoxX;
     int testBoxY;
 
-    public Board() {
+    static int BOARD_SIZE = 10;
+
+    String filename;
+
+    public Board(String file) {
         //testBoxX = 300;
         //testBoxY = 300;
 
-        // set the size of your draw board
         setPreferredSize(new Dimension(720, 720));
         setVisible(true);
     }
@@ -25,14 +34,29 @@ public class Board extends JComponent implements KeyListener {
         // you can create and draw an image using the class below e.g.
 
 
-        for (int i = 0; i < 720; i += 72) {
-            for (int j = 0; j < 720; j += 72) {
-                PositionedImage floor = new PositionedImage("assets/floor.png", i, j);
-                floor.draw(graphics);
+        int[][] board = {
+            {0,0,0,1,0,1,0,0,0,0},
+            {0,0,0,1,0,1,0,1,1,0},
+            {0,1,1,1,0,1,0,1,1,0},
+            {0,0,0,0,0,1,0,0,0,0},
+            {1,1,1,1,0,1,1,1,1,0},
+            {0,1,0,1,0,0,0,0,1,0},
+            {0,1,0,1,0,1,1,0,1,0},
+            {0,0,0,0,0,1,1,0,1,0},
+            {0,1,1,1,0,0,0,0,1,0},
+            {0,0,0,1,0,1,1,0,1,0}};
+
+        for (int i = 0; i < 10; i++) {
+            for (int j = 0; j < 10; j++) {
+                PositionedImage floor = new PositionedImage("assets/floor.png", i * 72, j * 72);
+                PositionedImage wall = new PositionedImage("assets/wall.png", i * 72, j * 72);
+                if (board[i][j] == 0) {
+                    floor.draw(graphics);
+                } else {
+                    wall.draw(graphics);
+                }
             }
         }
-
-        
     }
 
     @Override
