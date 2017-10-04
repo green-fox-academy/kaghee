@@ -36,7 +36,7 @@ public class Board extends JComponent implements KeyListener {
             npcChars.add(new Skeleton());
         }
 
-        setPreferredSize(new Dimension(720, 720));
+        setPreferredSize(new Dimension(720, 920));
         setVisible(true);
     }
 
@@ -58,13 +58,24 @@ public class Board extends JComponent implements KeyListener {
 
         hero.draw(graphics);
 
-        for (Character ch: npcChars) {
+        for (Character ch : npcChars) {
             while (board[ch.posY][ch.posX] != 0) {
                 ch.reposition();
             }
             ch.draw(graphics);
         }
+
+        graphics.setColor(Color.WHITE);
+        graphics.fillRect(0, 720, 720, 200);
+
+        Graphics2D g2d = (Graphics2D) graphics;
+        int width = 10;
+        g2d.setStroke(new BasicStroke(width));
+        graphics.setColor(Color.BLACK);
+        g2d.drawRect(5,720,710,195);
     }
+
+
 
     @Override
     public void keyTyped(KeyEvent e) {
