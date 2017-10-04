@@ -1,8 +1,12 @@
 public class Character extends PositionedImage{
-//    int maxHealth;
-//    int currHealth;
-//    int defPoint;
-//    int strikePoint;
+    static int d6 = (int)(Math.random() * 6);
+
+    int level;
+//    int statPerLevelUp = (this.level - 1) * d6;
+    int maxHealth;
+    int currHealth;
+    int defPoint;
+    int strikePoint;
 
     public Character(String image, int posX, int posY) {
         super(image, posX, posY);
@@ -37,5 +41,9 @@ public class Character extends PositionedImage{
         if (posX != 9 && board[posY][posX + 1] != 1) {
             posX++;
         }
+    }
+
+    public boolean isAlive() {
+        return (this.currHealth == 0) ? false : true;
     }
 }

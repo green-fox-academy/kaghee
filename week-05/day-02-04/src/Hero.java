@@ -2,6 +2,9 @@ public class Hero extends Character {
 
     public Hero() {
         super("assets/hero-down.png", 0, 0);
+        this.maxHealth = 3 * d6 + 20;
+        this.defPoint = 2 * d6;
+        this.strikePoint = 5 + d6;
     }
 
     public void turnUp() {
