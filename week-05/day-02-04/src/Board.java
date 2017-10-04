@@ -2,12 +2,18 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 
 public class Board extends JComponent implements KeyListener {
 
     Character hero;
-    Character skeleton;
+    Character skeleton1;
+    Character skeleton2;
+    Character skeleton3;
+    List<Character> monsters;
 
     int[][] board = {
             {0,0,0,1,0,1,0,0,0,0},
@@ -26,7 +32,10 @@ public class Board extends JComponent implements KeyListener {
     public Board() {
 
         hero = new Hero();
-        skeleton = new Skeleton();
+        skeleton1 = new Skeleton();
+        skeleton2 = new Skeleton();
+        skeleton3 = new Skeleton();
+        monsters = new ArrayList<>(Arrays.asList(skeleton1, skeleton2, skeleton3));
 
         setPreferredSize(new Dimension(720, 720));
         setVisible(true);
@@ -51,12 +60,21 @@ public class Board extends JComponent implements KeyListener {
         PositionedImage heroImg = new PositionedImage(hero.image, hero.posX, hero.posY);
         heroImg.draw(graphics);
 
-        while (board[skeleton.posY][skeleton.posX] != 0) {
-            skeleton.reposition();
+
+        for (Character ch: monsters) {
+            while (board[ch.posY][ch.posX] != 0) {
+                ch.reposition();
+            }
         }
 
-        PositionedImage skelImg = new PositionedImage(skeleton.image, skeleton.posX, skeleton.posY);
-        skelImg.draw(graphics);
+        PositionedImage sk1 = new PositionedImage(skeleton1.image, skeleton1.posX, skeleton1.posY);
+        sk1.draw(graphics);
+
+        PositionedImage sk2 = new PositionedImage(skeleton2.image, skeleton2.posX, skeleton2.posY);
+        sk2.draw(graphics);
+
+        PositionedImage sk3 = new PositionedImage(skeleton3.image, skeleton3.posX, skeleton3.posY);
+        sk3.draw(graphics);
     }
 
     @Override
