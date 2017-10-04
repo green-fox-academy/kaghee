@@ -1,7 +1,8 @@
-public class Skeleton extends Character{
+public class Skeleton extends Character {
 
     public Skeleton() {
-        super();
-        this.image = "assets/skeleton.png";
+        super("assets/skeleton.png", 1, 1);
+        this.posX = (int)(Math.random() * 10);
+        this.posY = (int)(Math.random() * 10);
     }
 }

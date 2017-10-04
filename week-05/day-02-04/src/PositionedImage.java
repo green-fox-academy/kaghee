@@ -9,9 +9,15 @@ public class PositionedImage {
     BufferedImage image;
     int posX, posY;
 
+    static int TILE_SIZE = 72;
+
     public PositionedImage(String filename, int posX, int posY) {
         this.posX = posX;
         this.posY = posY;
+        readFromFile(filename);
+    }
+
+    public void readFromFile(String filename) {
         try {
             image = ImageIO.read(new File(filename));
         } catch (IOException e) {
@@ -21,7 +27,7 @@ public class PositionedImage {
 
     public void draw(Graphics graphics) {
         if (image != null) {
-            graphics.drawImage(image, posX * 72, posY * 72, null);
+            graphics.drawImage(image, posX * TILE_SIZE, posY * TILE_SIZE, null);
         }
     }
 }

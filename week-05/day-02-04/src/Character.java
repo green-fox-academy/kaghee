@@ -1,17 +1,13 @@
-public class Character {
-    int maxHealth;
-    int currHealth;
-    int defPoint;
-    int strikePoint;
+public class Character extends PositionedImage{
+//    int maxHealth;
+//    int currHealth;
+//    int defPoint;
+//    int strikePoint;
 
     String image;
 
-    int posX;
-    int posY;
-
-    public Character() {
-        this.posX = (int)(Math.random() * 10);
-        this.posY = (int)(Math.random() * 10);
+    public Character(String image, int posX, int posY) {
+        super(image, posX, posY);
     }
 
     public void reposition() {
@@ -19,4 +15,27 @@ public class Character {
         this.posY = (int)(Math.random() * 10);
     }
 
+    public void moveUp(int[][] board) {
+        if (posY != 0 && board[posY - 1][posX] != 1) {
+            posY--;
+        }
+    }
+
+    public void moveDown(int[][] board) {
+        if (posY != 9 && board[posY + 1][posX] != 1) {
+            posY++;
+        }
+    }
+
+    public void moveLeft(int[][] board) {
+        if (posX != 0 && board[posY][posX - 1] != 1) {
+            posX--;
+        }
+    }
+
+    public void moveRight(int[][] board) {
+        if (posX != 9 && board[posY][posX + 1] != 1) {
+            posX++;
+        }
+    }
 }

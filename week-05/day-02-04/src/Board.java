@@ -6,13 +6,13 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-
 public class Board extends JComponent implements KeyListener {
 
-    Character hero;
-    Character skeleton1;
-    Character skeleton2;
-    Character skeleton3;
+    Hero hero;
+//    int monsterCount;
+    Skeleton skeleton1;
+    Skeleton skeleton2;
+    Skeleton skeleton3;
     List<Character> monsters;
 
     int[][] board = {
@@ -27,15 +27,19 @@ public class Board extends JComponent implements KeyListener {
             {0,1,1,1,0,0,0,0,1,0},
             {0,0,0,1,0,1,1,0,0,0}};
 
-    static int BOARD_SIZE = 10;
-
     public Board() {
 
         hero = new Hero();
+//        monsterCount = 3;
         skeleton1 = new Skeleton();
         skeleton2 = new Skeleton();
         skeleton3 = new Skeleton();
         monsters = new ArrayList<>(Arrays.asList(skeleton1, skeleton2, skeleton3));
+
+//        monsters = new ArrayList<>();
+//        for (int i = 0; i < monsterCount; i++) {
+//            monsters.add(new Skeleton());
+//        }
 
         setPreferredSize(new Dimension(720, 720));
         setVisible(true);
@@ -57,8 +61,7 @@ public class Board extends JComponent implements KeyListener {
             }
         }
 
-        PositionedImage heroImg = new PositionedImage(hero.image, hero.posX, hero.posY);
-        heroImg.draw(graphics);
+        hero.draw(graphics);
 
 
         for (Character ch: monsters) {
@@ -67,14 +70,9 @@ public class Board extends JComponent implements KeyListener {
             }
         }
 
-        PositionedImage sk1 = new PositionedImage(skeleton1.image, skeleton1.posX, skeleton1.posY);
-        sk1.draw(graphics);
-
-        PositionedImage sk2 = new PositionedImage(skeleton2.image, skeleton2.posX, skeleton2.posY);
-        sk2.draw(graphics);
-
-        PositionedImage sk3 = new PositionedImage(skeleton3.image, skeleton3.posX, skeleton3.posY);
-        sk3.draw(graphics);
+        skeleton1.draw(graphics);
+        skeleton2.draw(graphics);
+        skeleton3.draw(graphics);
     }
 
     @Override
@@ -90,25 +88,17 @@ public class Board extends JComponent implements KeyListener {
     @Override
     public void keyReleased(KeyEvent e) {
         if (e.getKeyCode() == KeyEvent.VK_UP) {
-            hero.image = "assets/hero-up.png";
-            if (hero.posY != 0 && board[hero.posY - 1][hero.posX] != 1) {
-                hero.posY--;
-            }
+            hero.turnUp();
+            hero.moveUp(board);
         } else if (e.getKeyCode() == KeyEvent.VK_DOWN) {
-            hero.image = "assets/hero-down.png";
-            if (hero.posY != 9 && board[hero.posY + 1][hero.posX] != 1) {
-                hero.posY++;
-            }
+            hero.turnDown();
+            hero.moveDown(board);
         } else if (e.getKeyCode() == KeyEvent.VK_LEFT) {
-            hero.image = "assets/hero-left.png";
-            if (hero.posX != 0 && board[hero.posY][hero.posX - 1] != 1) {
-                hero.posX--;
-            }
+            hero.turnLeft();
+            hero.moveLeft(board);
         } else if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
-            hero.image = "assets/hero-right.png";
-            if (hero.posX != 9 && board[hero.posY][hero.posX + 1] != 1) {
-                hero.posX++;
-            }
+            hero.turnRight();
+            hero.moveRight(board);
         }
         repaint();
     }
