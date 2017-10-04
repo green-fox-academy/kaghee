@@ -6,10 +6,7 @@ import java.awt.event.KeyListener;
 
 public class Board extends JComponent implements KeyListener {
 
-    int heroPosX;
-    int heroPosY;
-
-    String heroImage;
+    Character hero;
 
     int[][] board = {
             {0,0,0,1,0,1,0,0,0,0},
@@ -21,16 +18,13 @@ public class Board extends JComponent implements KeyListener {
             {0,1,0,1,0,1,1,0,1,0},
             {0,0,0,0,0,1,1,0,1,0},
             {0,1,1,1,0,0,0,0,1,0},
-            {0,0,0,1,0,1,1,0,1,0}};
+            {0,0,0,1,0,1,1,0,0,0}};
 
     static int BOARD_SIZE = 10;
 
-    public Board(String file) {
+    public Board() {
 
-        heroPosX = 0;
-        heroPosY = 0;
-
-        heroImage = "assets/hero-down.png";
+        hero = new Hero();
 
         setPreferredSize(new Dimension(720, 720));
         setVisible(true);
@@ -52,8 +46,8 @@ public class Board extends JComponent implements KeyListener {
             }
         }
 
-        PositionedImage hero = new PositionedImage(heroImage, heroPosX, heroPosY);
-        hero.draw(graphics);
+        PositionedImage heroImg = new PositionedImage(hero.image, hero.posX, hero.posY);
+        heroImg.draw(graphics);
     }
 
     @Override
@@ -68,20 +62,27 @@ public class Board extends JComponent implements KeyListener {
 
     @Override
     public void keyReleased(KeyEvent e) {
-        if (e.getKeyCode() == KeyEvent.VK_UP && board[heroPosY - 1][heroPosX] != 1) {
-            heroImage = "assets/hero-up.png";
-            heroPosY--;
-        } else if(e.getKeyCode() == KeyEvent.VK_DOWN && board[heroPosY + 1][heroPosX] != 1) {
-            heroImage = "assets/hero-down.png";
-            heroPosY++;
-        } else if(e.getKeyCode() == KeyEvent.VK_LEFT && board[heroPosY][heroPosX - 1] != 1) {
-            heroImage = "assets/hero-left.png";
-            heroPosX--;
-        }else if(e.getKeyCode() == KeyEvent.VK_RIGHT && board[heroPosY][heroPosX + 1] != 1) {
-            heroImage = "assets/hero-right.png";
-            heroPosX++;
+        if (e.getKeyCode() == KeyEvent.VK_UP) {
+            hero.image = "assets/hero-up.png";
+            if (hero.posY != 0 && board[hero.posY - 1][hero.posX] != 1) {
+                hero.posY--;
+            }
+        } else if (e.getKeyCode() == KeyEvent.VK_DOWN) {
+            hero.image = "assets/hero-down.png";
+            if (hero.posY != 9 && board[hero.posY + 1][hero.posX] != 1) {
+                hero.posY++;
+            }
+        } else if (e.getKeyCode() == KeyEvent.VK_LEFT) {
+            hero.image = "assets/hero-left.png";
+            if (hero.posX != 0 && board[hero.posY][hero.posX - 1] != 1) {
+                hero.posX--;
+            }
+        } else if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
+            hero.image = "assets/hero-right.png";
+            if (hero.posX != 9 && board[hero.posY][hero.posX + 1] != 1) {
+                hero.posX++;
+            }
         }
-
         repaint();
     }
 }
