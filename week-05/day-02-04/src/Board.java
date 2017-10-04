@@ -75,8 +75,6 @@ public class Board extends JComponent implements KeyListener {
         g2d.drawRect(5,720,710,195);
     }
 
-
-
     @Override
     public void keyTyped(KeyEvent e) {
 
