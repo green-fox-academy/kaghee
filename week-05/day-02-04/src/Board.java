@@ -7,6 +7,7 @@ import java.awt.event.KeyListener;
 public class Board extends JComponent implements KeyListener {
 
     Character hero;
+    Character skeleton;
 
     int[][] board = {
             {0,0,0,1,0,1,0,0,0,0},
@@ -25,6 +26,7 @@ public class Board extends JComponent implements KeyListener {
     public Board() {
 
         hero = new Hero();
+        skeleton = new Skeleton();
 
         setPreferredSize(new Dimension(720, 720));
         setVisible(true);
@@ -48,6 +50,13 @@ public class Board extends JComponent implements KeyListener {
 
         PositionedImage heroImg = new PositionedImage(hero.image, hero.posX, hero.posY);
         heroImg.draw(graphics);
+
+        while (board[skeleton.posY][skeleton.posX] != 0) {
+            skeleton.reposition();
+        }
+
+        PositionedImage skelImg = new PositionedImage(skeleton.image, skeleton.posX, skeleton.posY);
+        skelImg.draw(graphics);
     }
 
     @Override

@@ -1,7 +1,3 @@
-import javax.swing.*;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-
 public class Character {
     int maxHealth;
     int currHealth;
@@ -14,6 +10,13 @@ public class Character {
     int posY;
 
     public Character() {
-
+        this.posX = (int)(Math.random() * 10);
+        this.posY = (int)(Math.random() * 10);
     }
+
+    public void reposition() {
+        this.posX = (int)(Math.random() * 10);
+        this.posY = (int)(Math.random() * 10);
+    }
+
 }

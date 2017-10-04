@@ -1,5 +1,5 @@
 public class Hero extends Character {
-//    String image;
+
 //    String imageUp;
 //    String imageLeft;
 //    String imageRight;
