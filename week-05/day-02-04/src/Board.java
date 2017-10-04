@@ -3,17 +3,15 @@ import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class Board extends JComponent implements KeyListener {
 
     Hero hero;
-//    int monsterCount;
-    Skeleton skeleton1;
-    Skeleton skeleton2;
-    Skeleton skeleton3;
-    List<Character> monsters;
+    Boss boss;
+    int monsterCount;
+
+    List<Character> npcChars;
 
     int[][] board = {
             {0,0,0,1,0,1,0,0,0,0},
@@ -28,18 +26,15 @@ public class Board extends JComponent implements KeyListener {
             {0,0,0,1,0,1,1,0,0,0}};
 
     public Board() {
-
         hero = new Hero();
-//        monsterCount = 3;
-        skeleton1 = new Skeleton();
-        skeleton2 = new Skeleton();
-        skeleton3 = new Skeleton();
-        monsters = new ArrayList<>(Arrays.asList(skeleton1, skeleton2, skeleton3));
+        boss = new Boss();
 
-//        monsters = new ArrayList<>();
-//        for (int i = 0; i < monsterCount; i++) {
-//            monsters.add(new Skeleton());
-//        }
+        monsterCount = 5;
+        npcChars = new ArrayList<>();
+        for (int i = 0; i < monsterCount + 1; i++) {
+            npcChars.add(boss);
+            npcChars.add(new Skeleton());
+        }
 
         setPreferredSize(new Dimension(720, 720));
         setVisible(true);
@@ -63,16 +58,12 @@ public class Board extends JComponent implements KeyListener {
 
         hero.draw(graphics);
 
-
-        for (Character ch: monsters) {
+        for (Character ch: npcChars) {
             while (board[ch.posY][ch.posX] != 0) {
                 ch.reposition();
             }
+            ch.draw(graphics);
         }
-
-        skeleton1.draw(graphics);
-        skeleton2.draw(graphics);
-        skeleton3.draw(graphics);
     }
 
     @Override

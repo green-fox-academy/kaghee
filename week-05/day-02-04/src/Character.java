@@ -4,10 +4,10 @@ public class Character extends PositionedImage{
 //    int defPoint;
 //    int strikePoint;
 
-    String image;
-
     public Character(String image, int posX, int posY) {
         super(image, posX, posY);
+        this.posX = (int)(Math.random() * 10);
+        this.posY = (int)(Math.random() * 10);
     }
 
     public void reposition() {
