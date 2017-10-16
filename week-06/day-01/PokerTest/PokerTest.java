@@ -18,21 +18,17 @@ public class PokerTest {
         deck.generate();
     }
 
-    @Test
-    public void hello() throws Exception {
-        assertEquals("Hello", pkr.poker());
-    }
 
     @Test
     public void generate() throws Exception {
         assertEquals(deck.deck.get(0).color, "D");
-        assertEquals(deck.deck.get(0).value, 1);
+        assertEquals(deck.deck.get(0).value, "A");
     }
 
     @Test
     public void cardTest() throws Exception {
-        assertEquals("D1", deck.deck.get(0).toString());
-        assertEquals("H13", deck.deck.get(49).toString());
+        assertEquals("DA", deck.deck.get(0).toString());
+        assertEquals("HK", deck.deck.get(49).toString());
     }
 
     @Test
@@ -40,10 +36,34 @@ public class PokerTest {
         assertEquals("HK", deck.deck.get(49).toString());
     }
 
+//    @Test
+//    public void dealTest() throws Exception {
+//        assertEquals("[DA, CA, D2, C2, D3][HA, SA, H2, S2, H3]", deck.deal());
+//    }
+//
+//    @Test
+//    public void compareTest() throws Exception {
+//        assertEquals("White wins.", pkr.compare());
+//    }
+
     @Test
-    public void dealTest() throws Exception {
-        assertEquals("[DA, CA, D2, C2, D3][HA, SA, H2, S2, H3]", deck.deal());
+    public void compareTest1() throws Exception {
+        pkr.black.add(new Card("7", "S"));
+        pkr.black.add(new Card("10", "D"));
+        pkr.black.add(new Card("4", "C"));
+        pkr.black.add(new Card("K", "D"));
+        pkr.black.add(new Card("5", "D"));
+
+        pkr.white.add(new Card("2", "S"));
+        pkr.white.add(new Card("9", "C"));
+        pkr.white.add(new Card("3", "C"));
+        pkr.white.add(new Card("9", "H"));
+        pkr.white.add(new Card("J", "D"));
+
+//        assertEquals("Black wins.", pkr.compare());
     }
+
+
 
 
 

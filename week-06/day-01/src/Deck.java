@@ -11,8 +11,7 @@ public class Deck {
     public Deck() {
         deck = new ArrayList<>();
         types = new String[]{"D", "H", "C", "S"};
-        figures = new String[]{"A", "J", "Q", "K"};
-
+        figures = new String[]{"madar", "J", "Q", "K"};
     }
 
     public void generate() {
@@ -28,28 +27,13 @@ public class Deck {
                 actualValue = figures[(curr) - 10];
             }
             deck.add(new Card((actualValue), types[i % 4]));
-
         }
-
-
     }
 
     public void shuffle() {
         Collections.shuffle(deck);
     }
 
-    public String deal() {
-        ArrayList<Card> black = new ArrayList<>();
-        ArrayList<Card> white = new ArrayList<>();
-        for (int i = 0; i < 10; i++) {
-            if (i % 2 == 0) {
-                black.add(deck.get(i));
-            } else {
-                white.add(deck.get(i));
-            }
-        }
-        return black.toString() + white.toString();
-    }
 
 
 }
