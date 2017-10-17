@@ -1,6 +1,8 @@
+import main.java.animals.Printable;
+
 import java.util.Arrays;
 
-public class Domino implements Comparable<Domino> {
+public class Domino implements Comparable<Domino>, Printable {
     private final int[] values;
 
     public Domino(int valueA, int valueB) {
@@ -25,5 +27,10 @@ public class Domino implements Comparable<Domino> {
         } else {
             return this.values[1] - compareValue2;
         }
+    }
+
+    @Override
+    public void printAllFields() {
+        System.out.println(this.values[0] + " " + this.values[1]);
     }
 }
