@@ -1,24 +1,29 @@
 public class Shifter implements CharSequence {
     String word;
-    int num;
+    int shiftNum;
 
-    public Shifter(String word, int num) {
+    public Shifter(String word, int shiftNum) {
         this.word = word;
-        this.num = num;
+        this.shiftNum = shiftNum;
     }
-    
+
     @Override
     public int length() {
-        return 0;
+        return word.length();
     }
 
     @Override
     public char charAt(int index) {
-        return 0;
+        char[] chars = word.toCharArray();
+        return chars[index + shiftNum];
     }
 
     @Override
     public CharSequence subSequence(int start, int end) {
-        return null;
+        StringBuilder sb = new StringBuilder();
+        for (int i = start; i < end; i++) {
+            sb.append(word.charAt(i + shiftNum));
+        }
+        return sb;
     }
 }

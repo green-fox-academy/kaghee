@@ -6,6 +6,6 @@ public class StringMain {
 
         Shifter s = new Shifter("example", 2);
         System.out.println(s.charAt(0));
-
+        System.out.println(s.subSequence(0, 5));
     }
 }
