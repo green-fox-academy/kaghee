@@ -18,8 +18,8 @@ public class Domino implements Comparable<Domino> {
 
     @Override
     public int compareTo(Domino d) {
-        int compareValue = (int)(d.values[0]);
-        int compareValue2 = (int)(d.values[1]);
+        int compareValue = d.values[0];
+        int compareValue2 = d.values[1];
         if (this.values[0] - compareValue != 0) {
             return this.values[0] - compareValue;
         } else {
