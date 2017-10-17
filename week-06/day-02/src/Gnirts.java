@@ -18,6 +18,10 @@ public class Gnirts implements CharSequence {
 
     @Override
     public CharSequence subSequence(int start, int end) {
-        return null;
+        StringBuilder sb = new StringBuilder();
+        for (int i = word.length() - 1 - start; i > word.length() - 1 - end; i--) {
+            sb.append(word.charAt(i));
+        }
+        return sb;
     }
 }
