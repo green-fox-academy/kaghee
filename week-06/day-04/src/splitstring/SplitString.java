@@ -23,6 +23,8 @@ public class SplitString {
             System.out.println("Sorry, index out of bounds.");
         } catch (Exception e) {
             System.out.println("Sorry, something went wrong.");
+        } finally {
+            System.out.println("khut cshap!");
         }
     }
 }
