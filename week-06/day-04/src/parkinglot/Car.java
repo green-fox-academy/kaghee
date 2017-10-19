@@ -1,3 +1,5 @@
+package parkinglot;
+
 public class Car {
     String colour;
     String type;
