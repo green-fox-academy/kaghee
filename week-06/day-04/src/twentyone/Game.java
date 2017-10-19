@@ -4,20 +4,6 @@ import java.util.Scanner;
 
 public class Game {
     public static void main(String[] args) {
-        OptionParser parser = new OptionParser();
-        parser.accepts("l");
-        parser.accepts("a").withRequiredArg();
-        OptionSet options = parser.parse(args);
-
-        if (options.has("a")) {
-            System.out.println("`-a` was given with the argument " + options.valueOf("a"));
-        }
-
-        if (options.has("l")) {
-            System.out.println("`-l` was given with the no additional information.");
-        }
-
-
         int oppScore = (int)(Math.random() * 6 + 15);
         int score = 0;
         Deck d = new Deck();
