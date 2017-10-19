@@ -21,14 +21,21 @@ public class Deck {
     }
 
     public Card drawFirst() {
-        return deck.get(0);
+        Card curr = deck.get(0);
+        deck.remove(0);
+        return curr;
     }
 
     public Card drawLast() {
-        return deck.get(deck.size() - 1);
+        Card curr = deck.get(deck.size() - 1);
+        deck.remove(deck.size() - 1);
+        return curr;
     }
 
     public Card drawRandom() {
-        return deck.get((int)(Math.random() * deck.size()));
+        int index = (int)(Math.random() * deck.size());
+        Card curr = deck.get(index);
+        deck.remove(index);
+        return curr;
     }
 }

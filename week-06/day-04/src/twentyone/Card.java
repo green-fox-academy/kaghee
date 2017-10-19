@@ -1,7 +1,7 @@
 package twentyone;
 
 public class Card {
-    String rank;
+    int rank;
     String suit;
 
     public enum Colour {
@@ -23,7 +23,7 @@ public class Card {
     }
 
     public Card(Rank rank, Suit suit) {
-        this.rank = rank.toString();
+        this.rank = rank.value;
         this.suit = suit.toString();
     }
 
