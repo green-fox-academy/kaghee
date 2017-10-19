@@ -5,10 +5,15 @@ import java.util.Collections;
 import java.util.List;
 
 public class Deck {
-    List<Card> deck = new ArrayList<>();
+    List<Card> deck;
 
     public Deck() {
-
+        deck = new ArrayList<>();
+        for (Card.Rank r: Card.Rank.values()) {
+            for (Card.Suit s: Card.Suit.values()) {
+                deck.add(new Card(r, s));
+            }
+        }
     }
 
     public void shuffleDeck() {
@@ -20,7 +25,7 @@ public class Deck {
     }
 
     public Card drawLast() {
-        return deck.get(deck.size());
+        return deck.get(deck.size() - 1);
     }
 
     public Card drawRandom() {

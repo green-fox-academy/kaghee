@@ -24,7 +24,7 @@ public class ParkingLot {
             cars.add(curr);
 
             if (!allCars.containsKey(curr.colour + " " + curr.type)) {
-                allCars.put(curr.colour + " " + curr.type, 0);
+                allCars.put(curr.colour + " " + curr.type, 1);
             } else {
                 allCars.put(curr.colour + " " + curr.type, allCars.get(curr.colour + " " + curr.type) + 1);
             }
