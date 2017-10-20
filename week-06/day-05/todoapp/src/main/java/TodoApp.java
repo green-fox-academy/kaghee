@@ -75,7 +75,7 @@ public class TodoApp {
     public void save() {
         List<String> temp = new ArrayList<>();
         for (int i = 0; i < tasks.size(); i++) {
-            temp.add(tasks.get(i).name);
+            temp.add(tasks.get(i).descr);
         }
         try {
             Files.write(myPath, temp);
@@ -85,7 +85,7 @@ public class TodoApp {
     }
 
     public void checkTask(int index) {
-        Path myPath = Paths.get("../../src/main/java/tasks.txt");
+      Path myPath = Paths.get("../../src/main/java/tasks.txt");
         try {
             List<String> lines = Files.readAllLines(myPath);
             if (lines.size() < 2) {

@@ -1,4 +1,3 @@
-Walk the dog
 Feed the monkey
-Write a book
-Do the demo;complete
+Check an item;complete
+Thank my parents

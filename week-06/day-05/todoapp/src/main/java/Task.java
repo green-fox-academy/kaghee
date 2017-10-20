@@ -1,23 +1,26 @@
 public class Task implements Comparable<Task>{
     String name;
+    String descr;
     private int id;
     private static int idCounter;
     boolean isComplete;
 
-    public Task(String name) {
+    public Task(String descr) {
         idCounter++;
         this.id = idCounter;
-        if (name.endsWith(";complete")) {
-            this.name = name.substring(0, name.length() - 9);
+        this.descr = descr;
+        if (descr.endsWith(";complete")) {
+            this.name = descr.substring(0, descr.length() - 9);
             isComplete = true;
         } else {
-            this.name = name;
+            this.name = descr;
             isComplete = false;
         }
     }
 
     public void complete() {
         this.isComplete = true;
+        this.descr += ";complete";
     }
 
     @Override
