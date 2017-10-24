@@ -16,30 +16,26 @@ public class HelloToAllTheWorld {
             "Salve", "Ciao", "Kon-nichiwa", "An-nyong Ha-se-yo", "Salvëte", "Ni hao", "Dzien' dobry", "Olá", "Bunã ziua", "Zdravstvuyte", "Hola", "Jambo", "Hujambo", "Hej",
             "Sa-wat-dee", "Merhaba", "Selam", "Vitayu", "Xin chào", "Hylo", "Sut Mae", "Sholem Aleychem", "Sawubona"};
 
-
-
     Random r = new Random();
-//    Color colour = new Color(r.nextInt(256), r.nextInt(256), r.nextInt(256));
 
-    Color colour = Color.RED;
-    public Color getColour() {
-        return colour;
+    String[] colors = {"red", "green", "blue", "yellow", "pink", "orange", "black", "mediumslateblue", "fuchsia", "salmon", "chartreuse"};
+
+    public String getColour() {
+        return "color:" + colors[r.nextInt(colors.length)];
+    }
+
+    public String getSize() {
+        return "font-size:" + r.nextInt(40) + "px";
     }
 
     public String getHello() {
-        String result = "";
-        for (int i = 0; i < hellos.length; i++) {
-            result += hellos[i] + " ";
-        }
-        return result;
+        return hellos[r.nextInt(hellos.length)];
     }
 
     @RequestMapping(value="/web/greetall")
     public String greetEveryone(Model model) {
-        model.addAttribute("style", colour);
-        model.addAttribute("text", getHello());
-
-
+        model.addAttribute("style", getColour() + ";" + getSize());
+        model.addAttribute("text", getHello() + "!");
 
         return "greetall";
     }
