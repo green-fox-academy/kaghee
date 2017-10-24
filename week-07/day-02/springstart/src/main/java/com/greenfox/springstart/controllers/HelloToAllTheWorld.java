@@ -3,9 +3,6 @@ package com.greenfox.springstart.controllers;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-
-import java.awt.*;
 import java.util.Random;
 
 @Controller
@@ -18,14 +15,12 @@ public class HelloToAllTheWorld {
 
     Random r = new Random();
 
-    String[] colors = {"red", "green", "blue", "yellow", "pink", "orange", "black", "mediumslateblue", "fuchsia", "salmon", "chartreuse"};
-
     public String getColour() {
-        return "color:" + colors[r.nextInt(colors.length)];
+        return "color: rgb(" + r.nextInt(256) + "," + r.nextInt(256) + "," + r.nextInt(256) + ")";
     }
 
     public String getSize() {
-        return "font-size:" + r.nextInt(40) + "px";
+        return "font-size:" + (Math.random() * 50 + 15) + "px";
     }
 
     public String getHello() {
@@ -34,10 +29,9 @@ public class HelloToAllTheWorld {
 
     @RequestMapping(value="/web/greetall")
     public String greetEveryone(Model model) {
-        model.addAttribute("style", getColour() + ";" + getSize());
+        model.addAttribute("style", getColour() + ";" + getSize() + ";font-family:sans-serif;font-weight:bold");
         model.addAttribute("text", getHello() + "!");
 
         return "greetall";
     }
-
 }
