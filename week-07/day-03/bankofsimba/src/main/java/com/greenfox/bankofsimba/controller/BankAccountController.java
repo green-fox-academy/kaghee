@@ -51,4 +51,12 @@ public class BankAccountController {
         model.addAttribute("accounts", accs);
         return "exercise5";
     }
+
+    @RequestMapping(value="/exercise6")
+    public String isBadGuy(Model model) {
+        accs.get(0).setKing();
+        accs.get(1).setBad();
+        model.addAttribute("accounts", accs);
+        return "exercise6";
+    }
 }
