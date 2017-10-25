@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Thymeleaf Exercise #4</title>
+    <link rel="stylesheet" th:href="@{/style.css}" />
+    <meta charset="utf-8" />
+</head>
+<body>
+<table cellpadding="5">
+    <th:block th:each="account: ${accounts}">
+        <tr>
+            <th align="left" th:text="${account.name}"></th>
+            <td align="right" th:text="${account.balance + ' ' + account.currency}"></td>
+            <td th:text="${account.animalType}"></td>
+        </tr>
+    </th:block>
+</table>
+</body>
+</html>

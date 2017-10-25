@@ -5,9 +5,18 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 @Controller
 public class BankAccountController {
     BankAccount simbaAcc = new BankAccount("Simba", 2000, "lion");
+    BankAccount zordonAcc = new BankAccount("Zordon", 5500, "lion");
+    BankAccount timonAcc = new BankAccount("Timon", 1800, "meerkat");
+    BankAccount pumbaaAcc = new BankAccount("Pumbaa", 900, "warthog");
+
+    List<BankAccount> accs = new ArrayList<>(Arrays.asList(simbaAcc, zordonAcc, timonAcc, pumbaaAcc));
 
 
     @RequestMapping(value="/exercise1")
@@ -29,5 +38,11 @@ public class BankAccountController {
     public String htmlCeption(Model model) {
         model.addAttribute("text","This is an <em>HTML</em> text. <b>Enjoy yourself!</b>");
         return "exercise3";
+    }
+
+    @RequestMapping(value="/exercise4")
+    public String showAccounts(Model model) {
+        model.addAttribute("accounts", accs);
+        return "exercise4";
     }
 }
