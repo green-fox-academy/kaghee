@@ -18,7 +18,6 @@ public class BankAccountController {
 
     List<BankAccount> accs = new ArrayList<>(Arrays.asList(simbaAcc, zordonAcc, timonAcc, pumbaaAcc));
 
-
     @RequestMapping(value="/exercise1")
     public String showAcc(Model model) {
         model.addAttribute("text", simbaAcc.getName() + " " + simbaAcc.getBalance() + " " + simbaAcc.getAnimalType());
@@ -48,6 +47,7 @@ public class BankAccountController {
 
     @RequestMapping(value="/exercise5")
     public String addCounter(Model model) {
+        accs.get(0).setKing();
         model.addAttribute("accounts", accs);
         return "exercise5";
     }

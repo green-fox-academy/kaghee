@@ -8,7 +8,7 @@
 <body>
 <table cellpadding="5">
     <th:block th:each="account: ${accounts}">
-        <tr>
+        <tr th:style="${account.isKing()} ? 'color:orange' : 'color:black'">
             <td th:text="${accountStat.index + 1}"></td>
             <th align="left" th:text="${account.name}"></th>
             <td align="right" th:text="${account.balance + ' ' + account.currency}"></td>
