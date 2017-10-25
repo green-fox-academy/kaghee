@@ -1,6 +1,19 @@
 package com.greenfox.bankofsimba.model;
 
 public class BankAccount {
+    String name;
+    int balance;
+
+    String currency;
+
+    String animalType;
+    public BankAccount(String name, int balance, String animalType) {
+        this.name = name;
+        this.balance = balance;
+        this.currency = "Zebra";
+        this.animalType = animalType;
+    }
+
     public String getName() {
         return name;
     }
@@ -9,17 +22,11 @@ public class BankAccount {
         return balance;
     }
 
-    public String getAnimalType() {
-        return animalType;
+    public String getCurrency() {
+        return currency;
     }
 
-    String name;
-    int balance;
-    String animalType;
-
-    public BankAccount(String name, int balance, String animalType) {
-        this.name = name;
-        this.balance = balance;
-        this.animalType = animalType;
+    public String getAnimalType() {
+        return animalType;
     }
 }
