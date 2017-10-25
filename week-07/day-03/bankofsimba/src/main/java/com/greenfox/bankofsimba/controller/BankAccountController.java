@@ -4,7 +4,6 @@ import com.greenfox.bankofsimba.model.BankAccount;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 public class BankAccountController {
@@ -24,5 +23,11 @@ public class BankAccountController {
         model.addAttribute("currency", simbaAcc.getCurrency());
         model.addAttribute("type", simbaAcc.getAnimalType());
         return "exercise2";
+    }
+
+    @RequestMapping(value="/exercise3")
+    public String htmlCeption(Model model) {
+        model.addAttribute("text","This is an <em>HTML</em> text. <b>Enjoy yourself!</b>");
+        return "exercise3";
     }
 }
