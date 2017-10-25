@@ -45,4 +45,10 @@ public class BankAccountController {
         model.addAttribute("accounts", accs);
         return "exercise4";
     }
+
+    @RequestMapping(value="/exercise5")
+    public String addCounter(Model model) {
+        model.addAttribute("accounts", accs);
+        return "exercise5";
+    }
 }
