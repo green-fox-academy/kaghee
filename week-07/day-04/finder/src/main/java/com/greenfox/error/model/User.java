@@ -4,6 +4,9 @@ package com.greenfox.error.model;
  * Created by aze on 25/10/17.
  */
 public class User {
+    private String firstName;
+    private String lastName;
+
     public String getFirstName() {
         return firstName;
     }
@@ -12,6 +15,11 @@ public class User {
         return lastName;
     }
 
-    private String firstName;
-    private String lastName;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
 }
