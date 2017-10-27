@@ -1,5 +1,6 @@
 package com.greenfox.kaghee.foxclub.foxclub.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Fox {
@@ -11,6 +12,10 @@ public class Fox {
 
     public Fox() {
         image = "greenfox";
+        name = "Mr. Fox";
+        food = "pizza";
+        drink = "lemonade";
+        tricks = new ArrayList<>();
     }
 
     public String getName() {
@@ -41,8 +46,8 @@ public class Fox {
         return tricks;
     }
 
-    public void setTricks(List<Trick> tricks) {
-        this.tricks = tricks;
+    public int getNumOfTricks() {
+        return tricks.size();
     }
 
     public String getImage() {
@@ -51,6 +56,10 @@ public class Fox {
 
     public void setImage(String image) {
         this.image = image;
+    }
+
+    public void learnTrick(String trick) {
+        tricks.add(new Trick(trick));
     }
 
 

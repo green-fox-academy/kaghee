@@ -1,6 +1,7 @@
 package com.greenfox.kaghee.foxclub.foxclub.controller;
 
 import com.greenfox.kaghee.foxclub.foxclub.model.Fox;
+import com.greenfox.kaghee.foxclub.foxclub.model.Trick;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,9 +13,14 @@ public class MainController {
     @Autowired
     Fox fox;
 
-    @RequestMapping(value="/index")
+    @Autowired
+    Trick trick;
+
+    @RequestMapping(value="/")
     public String index(Model model) {
-        model.addAttribute("mrfox", fox.getImage());
-        return "/index";
+        model.addAttribute("fox", fox);
+        model.addAttribute("zoli", fox.getNumOfTricks());
+
+        return "index";
     }
 }
