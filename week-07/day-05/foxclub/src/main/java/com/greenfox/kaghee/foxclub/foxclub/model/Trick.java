@@ -1,4 +1,4 @@
-package com.greenfox.kaghee.foxclub.foxclub;
+package com.greenfox.kaghee.foxclub.foxclub.model;
 
 public class Trick {
     String description;
