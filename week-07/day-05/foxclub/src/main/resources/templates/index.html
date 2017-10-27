@@ -13,9 +13,10 @@
     <p th:text="'This is ' + *{name} + '. Currently living on ' + *{food} + ' and ' + *{drink} +
                 '. He knows ' + *{getNumOfTricks()} + ' tricks.'"></p>
     <h1>Known tricks</h1>
-    <p th:if="*{tricks.isEmpty()}" th:text="'You know nothing, ' + *{name} + '. Go and learn some tricks.'" ></p>
-    <ul th:unless="*{tricks.isEmpty()}" th:each="trick : *{tricks}">
-        <li th:text="${trick.description}">write HTML</li>
+    <span th:if="*{tricks.isEmpty()}" th:text="'You know nothing, ' + *{name} + '. Go and '"></span>
+    <span><a th:href="@{/learn}" th:text="'learn some tricks.'"></a></span>
+    <ul th:unless="*{tricks.isEmpty()}" th:each="tr : *{tricks}">
+        <li th:text="${tr.description}">write HTML</li>
     </ul>
 </th:block>
 </body>

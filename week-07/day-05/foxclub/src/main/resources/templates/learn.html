@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Fox Club Learning Centre</title>
+</head>
+<body>
+<p>Enter a trick you want to learn.</p>
+<form th:action="@{/learn}" th:object="${trick}" method="post">
+    <label for="trick">Trick:</label>
+    <input type="text" id="trick" />
+    <p><input type="submit" value="Learn" /></p>
+</form>
+</body>
+</html>
