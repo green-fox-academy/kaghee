@@ -47,16 +47,16 @@ public class Todo {
         return isUrgent;
     }
 
-    public void setUrgent() {
-        this.isUrgent = true;
+    public void setUrgent(boolean urgent) {
+        this.isUrgent = urgent;
     }
 
     public boolean isDone() {
         return isDone;
     }
 
-    public void setDone() {
-        this.isDone = true;
+    public void setDone(boolean done) {
+        this.isDone = done;
     }
 }
 
