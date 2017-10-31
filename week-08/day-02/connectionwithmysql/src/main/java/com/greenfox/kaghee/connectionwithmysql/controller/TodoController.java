@@ -38,4 +38,19 @@ public class TodoController {
         todoRepository.delete(id);
         return "redirect:/todo";
     }
+
+    @GetMapping(value="/{id}/edit")
+    public String edit(Model model) {
+        model.addAttribute("todo", new Todo());
+        return "edit";
+    }
+
+    @PostMapping(value="/{id}/edit")
+    public String edit(@ModelAttribute Todo todo) {
+        isitdone = todo.getDone();
+        isiturgent = todo.getUrgent();
+        todoRepository.findOne(todo.getId()).setDone(isitdone);
+        todoRepository.findOne(todo.getId()).setUrgent(isiturgent);
+        return "redirect:/todo";
+    }
 }
