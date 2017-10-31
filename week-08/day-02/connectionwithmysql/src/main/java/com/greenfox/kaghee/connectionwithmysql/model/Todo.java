@@ -9,7 +9,7 @@ import javax.persistence.Id;
 public class Todo {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Id
-    int id;
+    long id;
     String title;
     boolean urgent;
     boolean done;
@@ -43,11 +43,11 @@ public class Todo {
         this.urgent = urgent;
     }
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 

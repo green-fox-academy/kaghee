@@ -29,9 +29,13 @@ public class TodoController {
 
     @PostMapping(value="/add")
     public String save(@ModelAttribute Todo todo) {
-//        todo.setUrgent(isiturgent);
-//        todo.setDone(isitdone);
         todoRepository.save(todo);
+        return "redirect:/todo";
+    }
+
+    @GetMapping(value="/{id}/delete")
+    public String delete(@PathVariable long id) {
+        todoRepository.delete(id);
         return "redirect:/todo";
     }
 }
