@@ -16,8 +16,8 @@
     <tr th:each="todo: ${todos}">
         <td th:text="${todo.id}"></td>
         <td th:text="${todo.title}"></td>
-        <td th:text="${todo.isDone()}"></td>
-        <td th:text="${todo.isUrgent()}"></td>
+        <td th:text="${todo.done}"></td>
+        <td th:text="${todo.urgent}"></td>
     </tr>
 </table>
 <p><a th:href="@{/todo/add}" th:text="'Add a new item'">Link</a></p>

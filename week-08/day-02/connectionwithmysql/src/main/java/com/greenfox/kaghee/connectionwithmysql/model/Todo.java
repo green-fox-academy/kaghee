@@ -11,8 +11,24 @@ public class Todo {
     @Id
     int id;
     String title;
-    boolean isUrgent;
-    boolean isDone;
+    boolean urgent;
+    boolean done;
+
+    public boolean getUrgent() {
+        return urgent;
+    }
+
+    public void setUrgent(boolean urgent) {
+        this.urgent = urgent;
+    }
+
+    public boolean getDone() {
+        return done;
+    }
+
+    public void setDone(boolean done) {
+        this.done = done;
+    }
 
     public Todo() {
     }
@@ -21,10 +37,10 @@ public class Todo {
         this.title = title;
     }
 
-    public Todo(String title, boolean isDone, boolean isUrgent) {
+    public Todo(String title, boolean done, boolean urgent) {
         this.title = title;
-        this.isDone = isDone;
-        this.isUrgent = isUrgent;
+        this.done = done;
+        this.urgent = urgent;
     }
 
     public int getId() {
@@ -43,20 +59,6 @@ public class Todo {
         this.title = title;
     }
 
-    public boolean isUrgent() {
-        return isUrgent;
-    }
 
-    public void setUrgent(boolean urgent) {
-        this.isUrgent = urgent;
-    }
-
-    public boolean isDone() {
-        return isDone;
-    }
-
-    public void setDone(boolean done) {
-        this.isDone = done;
-    }
 }
 
