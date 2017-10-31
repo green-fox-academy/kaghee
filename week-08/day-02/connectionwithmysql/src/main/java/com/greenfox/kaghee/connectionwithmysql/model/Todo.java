@@ -7,6 +7,25 @@ import javax.persistence.Id;
 
 @Entity
 public class Todo {
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Id
+    int id;
+    String title;
+    boolean isUrgent;
+    boolean isDone;
+
+    public Todo() {
+    }
+
+    public Todo(String title) {
+        this.title = title;
+    }
+
+    public Todo(String title, boolean isDone, boolean isUrgent) {
+        this.title = title;
+        this.isDone = isDone;
+        this.isUrgent = isUrgent;
+    }
 
     public int getId() {
         return id;
@@ -28,30 +47,16 @@ public class Todo {
         return isUrgent;
     }
 
-    public void setUrgent(boolean urgent) {
-        isUrgent = urgent;
+    public void setUrgent() {
+        this.isUrgent = true;
     }
 
     public boolean isDone() {
         return isDone;
     }
 
-    public void setDone(boolean done) {
-        isDone = done;
-    }
-
-    @GeneratedValue(strategy= GenerationType.AUTO)
-    @Id
-    int id;
-    String title;
-    boolean isUrgent;
-    boolean isDone;
-
-    public Todo() {
-    }
-
-    public Todo(String title) {
-        this.title = title;
+    public void setDone() {
+        this.isDone = true;
     }
 }
 
