@@ -41,4 +41,16 @@ public class AssigneeController {
         assigneeRepository.delete(id);
         return "redirect:/todo/assignee";
     }
+
+    @GetMapping(value="/{id}/edit")
+    public String editAssignee(@PathVariable long id, Model model) {
+        model.addAttribute("editAssignee", assigneeRepository.findOne(id));
+        return "editAssignee";
+    }
+
+    @PostMapping(value="/{id}/edit")
+    public String editAssignee(@ModelAttribute Assignee assignee) {
+        assigneeRepository.save(assignee);
+        return "redirect:/todo/assignee";
+    }
 }
