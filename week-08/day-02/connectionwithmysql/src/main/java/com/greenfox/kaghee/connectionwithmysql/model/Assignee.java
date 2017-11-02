@@ -7,11 +7,20 @@ import javax.persistence.Id;
 
 @Entity
 public class Assignee {
+
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Id
     long id;
     String name;
     String email;
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
 
     public String getName() {
         return name;

@@ -10,6 +10,7 @@
     <tr th:each="assignee : ${assignees}" th:object="${assignee}">
         <td th:text="*{name}"></td>
         <td th:text="*{email}"></td>
+        <td><a th:href="@{'/todo/assignee/{id}/delete' (id=${assignee.id})}">delete</a></td>
     </tr>
 </table>
 <p><a th:href="@{/todo/assignee/add}" th:text="'Add a new assignee'">Link</a></p>
