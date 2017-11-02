@@ -7,17 +7,28 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import com.greenfox.kaghee.connectionwithmysql.repository.TodoRepository;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Controller
 @RequestMapping(value="/todo")
 public class TodoController {
     @Autowired
     TodoRepository todoRepository;
-    boolean isitdone;
-    boolean isiturgent;
 
     @RequestMapping(value={"/", ""})
-    public String list(@RequestParam(value="isActive", required=false) boolean done, Model model) {
-        model.addAttribute("todos", todoRepository.findAll());
+    public String list(Model model, @RequestParam(value="isActive", required=false) boolean active) {
+        List<Todo> todoList = new ArrayList<>();
+        for (Todo todo : todoRepository.findAll()) {
+            if (active) {
+                if (!todo.getDone()) {
+                    todoList.add(todo);
+                }
+            } else {
+                todoList.add(todo);         //if there's no request param, add all the todos
+            }
+        }
+        model.addAttribute("todos", todoList);
         return "todo";
     }
 
@@ -40,17 +51,14 @@ public class TodoController {
     }
 
     @GetMapping(value="/{id}/edit")
-    public String edit(Model model) {
-        model.addAttribute("todo", new Todo());
+    public String edit(@PathVariable long id, Model model) {
+        model.addAttribute("editTodo", todoRepository.findOne(id));
         return "edit";
     }
 
     @PostMapping(value="/{id}/edit")
     public String edit(@ModelAttribute Todo todo) {
-        isitdone = todo.getDone();
-        isiturgent = todo.getUrgent();
-        todoRepository.findOne(todo.getId()).setDone(isitdone);
-        todoRepository.findOne(todo.getId()).setUrgent(isiturgent);
+        todoRepository.save(todo);
         return "redirect:/todo";
     }
 }
