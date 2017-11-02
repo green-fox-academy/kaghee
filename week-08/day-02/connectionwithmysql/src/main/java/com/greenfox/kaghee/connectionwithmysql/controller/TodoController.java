@@ -61,4 +61,15 @@ public class TodoController {
         todoRepository.save(todo);
         return "redirect:/todo";
     }
+
+//    @GetMapping(value={"/", ""})
+//    public String search(Model model) {
+//        model.addAttribute("description", )
+//        return "todo";
+//    }
+
+//    @PostMapping(value={"/", ""})
+//    public String search(@ModelAttribute String description) {
+//
+//    }
 }

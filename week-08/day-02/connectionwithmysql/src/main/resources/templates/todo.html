@@ -6,6 +6,10 @@
 </head>
 <body>
 <h1>TODOS FOR TODAY:</h1>
+<form>
+    Search: <input type="text" th:object="${description}"/>
+    <input type="submit" value="Find todo" /><br /><br />
+</form>
 <table cellpadding="5" border="thin solid black">
     <tr>
         <th>ID</th>
@@ -23,5 +27,6 @@
     </tr>
 </table>
 <p><a th:href="@{/todo/add}" th:text="'Add a new item'">Link</a></p>
+<p><a th:href="@{/todo/assignees}" th:text="'List of assignees'">Link</a></p>
 </body>
 </html>
