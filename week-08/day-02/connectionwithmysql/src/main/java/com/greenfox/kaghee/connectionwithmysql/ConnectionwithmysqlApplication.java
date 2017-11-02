@@ -1,6 +1,8 @@
 package com.greenfox.kaghee.connectionwithmysql;
 
+import com.greenfox.kaghee.connectionwithmysql.model.Assignee;
 import com.greenfox.kaghee.connectionwithmysql.model.Todo;
+import com.greenfox.kaghee.connectionwithmysql.repository.AssigneeRepository;
 import com.greenfox.kaghee.connectionwithmysql.repository.TodoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -12,6 +14,9 @@ public class ConnectionwithmysqlApplication implements CommandLineRunner{
 
 	@Autowired
 	TodoRepository todoRepository;
+
+	@Autowired
+	AssigneeRepository assigneeRepository;
 
 	public static void main(String[] args) {
 		SpringApplication.run(ConnectionwithmysqlApplication.class, args);
@@ -27,5 +32,10 @@ public class ConnectionwithmysqlApplication implements CommandLineRunner{
 		todoRepository.save(new Todo("Ask Laca to tell a joke"));
 		todoRepository.save(new Todo("Record a song by System of a Down", false, true));
 		todoRepository.save(new Todo("Populate this list with loooong lines"));
+
+		assigneeRepository.save(new Assignee("Sandor Vass", "csecsemo@grinfoksz.com"));
+		assigneeRepository.save(new Assignee("Salanki Malanki", "salika@grinfoksz.com"));
+		assigneeRepository.save(new Assignee("Please Suki", "kegyetlennotesz@grinfoksz.com"));
+		assigneeRepository.save(new Assignee("Bela Kovacs", "kovacsbela555@grinfoksz.com"));
 	}
 }

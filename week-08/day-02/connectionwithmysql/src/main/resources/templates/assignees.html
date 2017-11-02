@@ -5,12 +5,13 @@
     <title>List of Assignees</title>
 </head>
 <body>
-    <h1>Assignees:</h1>
-    <table>
-        <tr th:each="assignee : ${assignees}" th:object="{assignee}">
-            <td th:text="*{name}"></td>
-            <td th:text="*{email}"></td>
-        </tr>
-    </table>
+<h1>Assignees:</h1>
+<table cellpadding="5" border="thin solid black">
+    <tr th:each="assignee : ${assignees}" th:object="${assignee}">
+        <td th:text="*{name}"></td>
+        <td th:text="*{email}"></td>
+    </tr>
+</table>
+<p><a th:href="@{/todo/assignee/add}" th:text="'Add a new assignee'">Link</a></p>
 </body>
 </html>

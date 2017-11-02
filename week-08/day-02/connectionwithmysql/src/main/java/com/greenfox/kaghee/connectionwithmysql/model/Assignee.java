@@ -1,10 +1,18 @@
 package com.greenfox.kaghee.connectionwithmysql.model;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
 public class Assignee {
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Id
+    long id;
+    String name;
+    String email;
+
     public String getName() {
         return name;
     }
@@ -29,8 +37,4 @@ public class Assignee {
     public Assignee() {
 
     }
-
-    @Id
-    String name;
-    String email;
 }
