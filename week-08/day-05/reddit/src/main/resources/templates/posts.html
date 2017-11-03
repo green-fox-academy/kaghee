@@ -12,12 +12,14 @@
         <th>SCORE</th>
         <th>Actions</th>
         <th>Content</th>
+        <th>Date created</th>
     </tr>
     <tr th:each="post : ${postList}">
         <td th:text="${post.score}"></td>
         <td><a th:href="@{'/reddit/{id}/upvote' (id=${post.id})}">+</a>
         <a th:href="@{'/reddit/{id}/downvote' (id=${post.id})}"> -</a></td>
         <td th:text="${post.content}"></td>
+        <td th:text="${post.creationDate}"></td>
     </tr>
 </table>
 </body>

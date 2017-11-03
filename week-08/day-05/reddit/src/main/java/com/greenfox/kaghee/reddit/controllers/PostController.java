@@ -9,6 +9,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @Controller
 @RequestMapping(value="/reddit")
 public class PostController {
@@ -19,9 +21,9 @@ public class PostController {
     VotingService votingService;
 
     @GetMapping(value={"/", ""})
-    @Query("SELECT score, action, content FROM post ORDER BY score DESC")
     public String list(Model model) {
-        model.addAttribute("postList", postRepo.findAll());
+        List<Post> postList = postRepo.findAllOrderByScoreDesc();
+        model.addAttribute("postList", postList);
         return "posts";
     }
 
