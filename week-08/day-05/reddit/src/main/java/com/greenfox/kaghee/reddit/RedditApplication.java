@@ -1,5 +1,6 @@
 package com.greenfox.kaghee.reddit;
 
+import com.greenfox.kaghee.reddit.models.Post;
 import com.greenfox.kaghee.reddit.repositories.PostRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -18,6 +19,7 @@ public class RedditApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-
+		postRepo.save(new Post("first one"));
+		postRepo.save(new Post("second one"));
 	}
 }

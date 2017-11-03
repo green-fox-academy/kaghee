@@ -13,8 +13,10 @@ public class Post {
     int score;
     String content;
 
-    public Post(int score, String content) {
-        this.score = score;
+    public Post() {
+    }
+
+    public Post(String content) {
         this.content = content;
     }
 
