@@ -1,8 +1,7 @@
 package com.greenfox.kaghee.frontend.controllers;
 
-import com.greenfox.kaghee.frontend.models.AppendedWord;
-import com.greenfox.kaghee.frontend.models.DoubledNumber;
-import com.greenfox.kaghee.frontend.models.Greeter;
+import com.greenfox.kaghee.frontend.models.*;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.MissingServletRequestParameterException;
 import org.springframework.web.bind.annotation.*;
 
@@ -27,8 +26,13 @@ public class RestController {
         return new AppendedWord(word);
     }
 
+    @PostMapping(value = "/dountil/{what}")
+    public Calculation dountil(@PathVariable(value="what") String operation, @RequestBody Limit limit) {
+        return new Calculation(operation, limit.getUntil());
+    }
+
     @ExceptionHandler(MissingServletRequestParameterException.class)
-    public ErrorHndlr doublingErrorHndlr(MissingServletRequestParameterException e) {
+    public ErrorHndlr errorHndlr(MissingServletRequestParameterException e) {
         List<Character> vowels = Arrays.asList('a', 'e', 'i', 'o', 'u');
         String missingPara = e.getParameterName();
         if (vowels.contains(missingPara.charAt(0))) {
@@ -37,5 +41,4 @@ public class RestController {
             return new ErrorHndlr("Please provide a " + missingPara + "!");
         }
     }
-
 }
