@@ -3,15 +3,6 @@ package com.greenfox.kaghee.frontend.models;
 public class DoubledNumber {
     int received;
     int result;
-    String error;
-
-    public String getError() {
-        return error;
-    }
-
-    public void setError(String error) {
-        this.error = error;
-    }
 
     public DoubledNumber(int received) {
         this.received = received;
