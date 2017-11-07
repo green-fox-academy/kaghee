@@ -1,12 +1,10 @@
 package com.greenfox.kaghee.frontend.controllers;
 
+import com.greenfox.kaghee.frontend.models.AppendedWord;
 import com.greenfox.kaghee.frontend.models.DoubledNumber;
 import com.greenfox.kaghee.frontend.models.Greeter;
 import org.springframework.web.bind.MissingServletRequestParameterException;
-import org.springframework.web.bind.annotation.ExceptionHandler;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Arrays;
 import java.util.List;
@@ -16,14 +14,17 @@ public class RestController {
 
     @GetMapping(value = "/doubling")
     public DoubledNumber doubling(@RequestParam("input") int input) {
-        DoubledNumber dn = new DoubledNumber(input);
-        return dn;
+        return new DoubledNumber(input);
     }
 
     @GetMapping(value = "/greeter")
     public Greeter greet(@RequestParam("name") String name, @RequestParam("title") String title) {
-        Greeter g = new Greeter("Oh, hi there " + name + ", my dear " + title + "!");
-        return g;
+        return new Greeter("Oh, hi there " + name + ", my dear " + title + "!");
+    }
+
+    @GetMapping(value = "/appenda/{appendable}")
+    public AppendedWord appenda(@PathVariable(value="appendable") String word) {
+        return new AppendedWord(word);
     }
 
     @ExceptionHandler(MissingServletRequestParameterException.class)
