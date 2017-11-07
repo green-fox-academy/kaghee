@@ -26,12 +26,13 @@ public class RestController {
     }
 
     @PostMapping(value = "/dountil/{what}")
-    public Object dountil(@PathVariable(value="what") String operation, @RequestBody Limit limit) {
-        try {
-            return new Calculation(operation, limit.getUntil());
-        } catch (Exception e) {
-            return new ErrorHndlr("Please provide a number!");
-        }
+    public Calculation dountil(@PathVariable(value="what") String operation, @RequestBody Limit limit) {
+        return new Calculation(operation, limit.getUntil());
+    }
+
+    @PostMapping(value = "/arrays")
+    public Handled handleArray(@RequestBody ArrayToHandle arrayToHandle) {
+        return new Handled(arrayToHandle.getWhat(), arrayToHandle.getNumbers());
     }
 
     @ExceptionHandler(MissingServletRequestParameterException.class)
