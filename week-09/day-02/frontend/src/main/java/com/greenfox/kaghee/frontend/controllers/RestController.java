@@ -26,8 +26,12 @@ public class RestController {
     }
 
     @PostMapping(value = "/dountil/{what}")
-    public Calculation dountil(@PathVariable(value="what") String operation, @RequestBody Limit limit) {
-        return new Calculation(operation, limit.getUntil());
+    public Object dountil(@PathVariable(value="what", required = false) String operation, @RequestBody Limit limit) {
+        if (operation == null) {
+            return new ErrorHndlr("Please specify what to do with the number!");
+        } else {
+            return new Calculation(operation, limit.getUntil());
+        }
     }
 
     @PostMapping(value = "/arrays")
