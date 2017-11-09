@@ -1,15 +1,11 @@
 package com.greenfox.kaghee.connectionwithmysql.controller;
 
 import com.greenfox.kaghee.connectionwithmysql.model.Assignee;
-import com.greenfox.kaghee.connectionwithmysql.model.Todo;
 import com.greenfox.kaghee.connectionwithmysql.repository.AssigneeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.ArrayList;
-import java.util.List;
 
 @Controller
 @RequestMapping(value="/todo/assignee")
@@ -53,4 +49,10 @@ public class AssigneeController {
         assigneeRepository.save(assignee);
         return "redirect:/todo/assignee";
     }
+
+//    @GetMapping(value = "/{id}/todolist")
+//    public String assigneeTodos(@PathVariable long id, Model model) {
+//        model.addAttribute("thisGuysTodos", assigneeRepository.findOne(id).getTodos());
+//        return "todoslist";
+//    }
 }

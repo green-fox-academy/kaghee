@@ -1,6 +1,8 @@
 package com.greenfox.kaghee.connectionwithmysql.controller;
 
+import com.greenfox.kaghee.connectionwithmysql.model.Assignee;
 import com.greenfox.kaghee.connectionwithmysql.model.Todo;
+import com.greenfox.kaghee.connectionwithmysql.repository.AssigneeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,6 +17,9 @@ import java.util.List;
 public class TodoController {
     @Autowired
     TodoRepository todoRepository;
+
+    @Autowired
+    AssigneeRepository assigneeRepository;
 
     @RequestMapping(value={"/", ""})
     public String list(Model model, @RequestParam(value="isActive", required=false) boolean active) {
@@ -32,7 +37,7 @@ public class TodoController {
         return "todo";
     }
 
-    @RequestMapping(value="/add")
+    @GetMapping(value="/add")
     public String add(Model model) {
         model.addAttribute("todo", new Todo());
         return "create";
@@ -53,6 +58,7 @@ public class TodoController {
     @GetMapping(value="/{id}/edit")
     public String edit(@PathVariable long id, Model model) {
         model.addAttribute("editTodo", todoRepository.findOne(id));
+        model.addAttribute("assignees", assigneeRepository.findAll());
         return "edit";
     }
 
@@ -61,15 +67,4 @@ public class TodoController {
         todoRepository.save(todo);
         return "redirect:/todo";
     }
-
-//    @GetMapping(value={"/", ""})
-//    public String search(Model model) {
-//        model.addAttribute("description", )
-//        return "todo";
-//    }
-
-//    @PostMapping(value={"/", ""})
-//    public String search(@ModelAttribute String description) {
-//
-//    }
 }

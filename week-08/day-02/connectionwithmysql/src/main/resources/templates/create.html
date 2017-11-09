@@ -4,12 +4,12 @@
     <meta charset="UTF-8" />
     <title>Create New Todo</title>
 </head>
-<body>
+<body style="font-family: 'Calibri', sans-serif">
     <h1>Add new todo</h1>
     <form th:action="@{/todo/add}" th:object="${todo}" method="post">
-        <p>Todo:<input type="text" th:field="*{title}"/></p>
-        <p>Is it done?<input type="checkbox" th:field="*{done}"/></p>
-        <p>Is it urgent?<input type="checkbox" th:field="*{urgent}"/></p>
+        <p>Todo: <input style="background-color: #ffd5a9" type="text" th:field="*{title}"/></p>
+        <p>Is it done? <input type="checkbox" th:field="*{done}"/></p>
+        <p>Is it urgent? <input type="checkbox" th:field="*{urgent}"/></p>
         <p><input type="submit" value="Submit" /></p>
     </form>
 </body>

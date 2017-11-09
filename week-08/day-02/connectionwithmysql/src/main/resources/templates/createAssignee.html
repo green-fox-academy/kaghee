@@ -4,11 +4,11 @@
     <meta charset="UTF-8" />
     <title>Add New Assignee</title>
 </head>
-<body>
+<body style="font-family: 'Calibri', sans-serif">
     <h1>Add new assignee</h1>
     <form th:action="@{/todo/assignee/add}" th:object="${assignee}" method="post">
-        <p>Name: <input type="text" th:field="*{name}"/></p>
-        <p>Email: <input type="text" th:field="*{email}"/></p>
+        <p>Name: <input style="background-color: #ffa3a3; font-weight: bold" type="text" th:field="*{name}"/></p>
+        <p>Email: <input style="background-color: #ffd5a9" type="text" th:field="*{email}"/></p>
         <p><input type="submit" value="Submit" /></p>
     </form>
 </body>

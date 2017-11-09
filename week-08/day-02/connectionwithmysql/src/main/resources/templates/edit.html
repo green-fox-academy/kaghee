@@ -4,13 +4,16 @@
     <meta charset="UTF-8" />
     <title>Edit Todo</title>
 </head>
-<body>
+<body style="font-family: 'Calibri', sans-serif">
     <h1>Edit Todo</h1>
     <form th:action="@{/todo/{id}/edit}" th:object="${editTodo}" method="post">
         <input type="hidden" th:field="*{id}"/>
-        <p>Todo description: <input type="text" th:field="*{title}"/></p>
+        <p>Todo description: <input style="background-color: #ffd5a9; padding: 5px" type="text" th:field="*{title}"/></p>
         <p>Done <input type="checkbox" th:field="*{done}"/></p>
         <p>Urgent <input type="checkbox" th:field="*{urgent}"/></p>
+        <p>Assign <select th:field="*{person}">
+            <option th:each="person: ${assignees}" th:text="${person.name}" th:value="${person.id}"></option>
+        </select></p>
         <p><input type="submit" value="Submit" /></p>
     </form>
 </body>

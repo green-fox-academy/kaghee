@@ -1,32 +1,42 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
+    <link href="webjars/bootstrap/3.3.7-1/css/bootstrap.min.css" rel="stylesheet"/>
     <meta charset="UTF-8" />
     <title>Todo CRUD App</title>
 </head>
-<body>
+<body style="font-family: 'Calibri', sans-serif">
+<div class="container-fluid">
 <h1>TODOS FOR TODAY:</h1>
 <form>
     Search: <input type="text" th:object="${description}"/>
     <input type="submit" value="Find todo" /><br /><br />
 </form>
-<table cellpadding="5" border="thin solid black">
-    <tr>
+<table class="table table-hover" style="font-size: 18px">
+    <tr style="background-color: tomato; color: white; text-shadow: #7a5230 1px 0 10px;" border="3px solid darkblue">
         <th>ID</th>
         <th>ACTION</th>
         <th>DONE</th>
         <th>URGENT</th>
+        <th>ASSIGNEE</th>
+        <th>X</th>
+        <th>E</th>
     </tr>
     <tr th:each="todo: ${todos}" th:object="${todo}">
-        <td th:text="*{id}"></td>
-        <td th:text="*{title}"></td>
-        <td th:text="*{done}"></td>
-        <td th:text="*{urgent}"></td>
-        <td><a th:href="@{'/todo/{id}/delete' (id=${todo.id})}">delete</a></td>
-        <td><a th:href="@{'/todo/{id}/edit' (id=${todo.id})}">edit</a></td>
+        <td style="background-color: #ffa3a3" th:text="*{id}"></td>
+        <th style="text-align: left" th:text="*{title}"></th>
+        <td th:if="*{done}" class="glyphicon glyphicon-ok" style="color:#ffd5a9"></td>
+        <td th:if="*{not done}" class="glyphicon glyphicon-remove" style="color:#EE7600"></td>
+        <td style="background-color: #fbffb6" th:text="*{urgent} ? 'YES!!!' : 'nah'"></td>
+        <td style="background-color: #bcffb6" th:text="*{person}"></td>
+        <td style="background-color: #b4d7ff"><a class="btn btn-sm btn-info" th:href="@{'/todo/{id}/delete' (id=${todo.id})}" role="button">delete</a></td>
+        <td style="background-color: #D8BFD8"><a class="btn btn-sm btn-info" th:href="@{'/todo/{id}/edit' (id=${todo.id})}" role="button">edit</a></td>
     </tr>
 </table>
-<p><a th:href="@{/todo/add}" th:text="'Add a new item'">Link</a></p>
-<p><a th:href="@{/todo/assignee}" th:text="'List of assignees'">Link</a></p>
+<p><a class="btn btn-lg btn-warning" th:href="@{/todo/add}" th:text="'Add a new item'" role="button">Sign up today</a></p>
+<p><a class="btn btn-lg btn-danger" th:href="@{/todo/assignee}" th:text="'List of assignees'" role="button">Link</a></p>
+</div>
+<script src="webjars/jquery/1.11.1/jquery.min.js"></script>
+<script src="webjars/bootstrap/3.3.7-1/js/bootstrap.min.js"></script>
 </body>
 </html>

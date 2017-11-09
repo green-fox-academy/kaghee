@@ -1,6 +1,7 @@
 package com.greenfox.kaghee.connectionwithmysql.model;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class Assignee {
@@ -10,6 +11,17 @@ public class Assignee {
     long id;
     String name;
     String email;
+
+    @OneToMany(fetch = FetchType.EAGER)
+    List<Todo> todos;
+
+    public List<Todo> getTodos() {
+        return todos;
+    }
+
+    public void setTodos(List<Todo> todos) {
+        this.todos = todos;
+    }
 
     public long getId() {
         return id;
@@ -42,5 +54,9 @@ public class Assignee {
 
     public Assignee() {
 
+    }
+
+    public String toString() {
+        return this.name;
     }
 }

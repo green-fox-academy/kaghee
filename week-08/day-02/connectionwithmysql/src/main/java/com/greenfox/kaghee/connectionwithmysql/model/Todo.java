@@ -1,7 +1,6 @@
 package com.greenfox.kaghee.connectionwithmysql.model;
 
 import javax.persistence.*;
-
 @Entity
 public class Todo {
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -10,6 +9,30 @@ public class Todo {
     String title;
     boolean urgent;
     boolean done;
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    Assignee person;
+
+    public Todo() {
+    }
+
+    public Todo(String title) {
+        this.title = title;
+    }
+
+    public Todo(String title, boolean done, boolean urgent) {
+        this.title = title;
+        this.done = done;
+        this.urgent = urgent;
+    }
+
+    public Assignee getPerson() {
+        return person;
+    }
+
+    public void setPerson(Assignee person) {
+        this.person = person;
+    }
 
     public boolean getUrgent() {
         return urgent;
@@ -25,19 +48,6 @@ public class Todo {
 
     public void setDone(boolean done) {
         this.done = done;
-    }
-
-    public Todo() {
-    }
-
-    public Todo(String title) {
-        this.title = title;
-    }
-
-    public Todo(String title, boolean done, boolean urgent) {
-        this.title = title;
-        this.done = done;
-        this.urgent = urgent;
     }
 
     public long getId() {

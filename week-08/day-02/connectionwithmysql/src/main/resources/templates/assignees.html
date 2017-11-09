@@ -1,20 +1,32 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous"/>
     <meta charset="UTF-8" />
     <title>List of Assignees</title>
 </head>
-<body>
+<body style="font-family: 'Calibri', sans-serif">
+<div class="container-fluid">
 <h1>Assignees:</h1>
-<table cellpadding="5" border="thin solid black">
+<table class="table table-hover" style="font-size: 18px">
+    <tr style="background-color: tomato; color: white; text-shadow: #7a5230 1px 0 10px;" border="3px solid darkblue">
+         <th>NAME</th>
+         <th>EMAIL</th>
+         <th>X</th>
+         <th>E</th>
+    </tr>
     <tr th:each="assignee : ${assignees}" th:object="${assignee}">
-        <td th:text="*{name}"></td>
-        <td th:text="*{email}"></td>
-        <td><a th:href="@{'/todo/assignee/{id}/delete' (id=${assignee.id})}">delete</a></td>
-        <td><a th:href="@{'/todo/assignee/{id}/edit' (id=${assignee.id})}">edit</a></td>
+        <td style="background-color: #ffa3a3; font-weight: bold" th:text="*{name}"></td>
+        <td style="background-color: #ffd5a9" th:text="*{email}"></td>
+        <td style="background-color: #fbffb6"><a class="btn btn-sm btn-info" th:href="@{'/todo/assignee/{id}/delete' (id=${assignee.id})}" role="button">delete</a></td>
+        <td style="background-color: #D8BFD8"><a class="btn btn-sm btn-info" th:href="@{'/todo/assignee/{id}/edit' (id=${assignee.id})}" role="button">edit</a></td>
     </tr>
 </table>
-<p><a th:href="@{/todo/assignee/add}" th:text="'Add a new assignee'">Link</a></p>
-<p><a th:href="@{/todo}" th:text="'Back to the Todos'">Link</a></p>
+<p><a class="btn btn-lg btn-warning" th:href="@{/todo/assignee/add}" th:text="'Add a new assignee'" role="button">Link</a></p>
+<p><a class="btn btn-lg btn-danger" th:href="@{/todo}" th:text="'Back to the Todos'" role="button">Link</a></p>
+</div>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
 </body>
 </html>
