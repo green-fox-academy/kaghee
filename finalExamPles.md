@@ -1,5 +1,8 @@
 ## Orientation
 
+[Music App](https://github.com/greenfox-academy/kaghee/tree/master/week-06/day-02/src/main/java/music)
+* abstract classes
+
 [Todo App](https://github.com/greenfox-academy/kaghee/tree/master/week-08/day-02/connectionwithmysql/src/main)
 * connecting MySQL database to backend application
 * Thymeleaf
